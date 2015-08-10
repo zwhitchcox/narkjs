@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app='hep-rewards' ng-cloak>
+<head>
+  <title>HEP Rewards</title>
+  <include template='./vendorstyles.marko' />
+  <meta name="viewport" content="initial-scale=1">
+</head>
+<body ng-controller="MainCtrl as main" layout="column">
+  <include template="./header.marko" />
+  <div ui-view></div>
+  <include template='./vendorscripts.marko' />
+  <include template='./ngtemplates.marko' />
+  <!-- import all scripts from public directory -->
+  <span if="notEmpty(data.scripts)">
+    <script src="$src" for="src in data.scripts"></script>
+  </span>
+
+</body>
+</html>
