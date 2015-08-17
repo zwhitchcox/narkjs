@@ -1,8 +1,9 @@
-'use strict'
+'use strict';
+
 let parse = require('co-body'),
     jwt   = require('jsonwebtoken')
 
-let secret = 'shhreallysecretomgforreals'
+let secret = 'shhreallysecretzomgforrealz'
 
 module.exports = {
     isAuth:       isAuth,

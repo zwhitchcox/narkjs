@@ -4,7 +4,7 @@ function create(__helpers) {
       notEmpty = __helpers.ne;
 
   return function render(data, out) {
-    out.w('<link rel="stylesheet" href="https://gitcdn.xyz/repo/angular/bower-material/v0.10.1/angular-material.css">');
+    out.w('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.10.1/angular-material.min.css">');
   };
 }
 (module.exports = require("marko").c(__filename)).c(create);

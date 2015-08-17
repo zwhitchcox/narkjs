@@ -21,10 +21,10 @@ function create(__helpers) {
     __helpers.i(out, __vendorscripts_marko, {});
     __helpers.i(out, __ngtemplates_marko, {});
 
-    if (notEmpty(data.scripts)) {
+    if (notEmpty(data.srcs)) {
       out.w('<span>');
 
-      forEach(data.scripts, function(src) {
+      forEach(data.srcs, function(src) {
         out.w('<script' +
           attr("src", src) +
           '></script>');

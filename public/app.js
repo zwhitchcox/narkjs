@@ -1,5 +1,7 @@
-angular
-    .module('hep-rewards',[
-        'ngMaterial',
-        'ui.router'
-    ])
+(function() {
+    angular
+        .module('hep-rewards',[
+            'ngMaterial',
+            'ui.router'
+        ])
+})()
