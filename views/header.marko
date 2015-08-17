@@ -1,8 +1,6 @@
 <md-toolbar layout="row">
     <div class="md-toolbar-tools">
-        <h2>
-            HEP Rewards
-        </h2>
+            <a ui-sref="home"><h1>HEP Rewards</h1></a>
         <span flex></span>
         <span ng-controller="NavLoginCtrl as nav">
             <md-button ui-sref="login" ng-if="!nav.state.isLoggedIn">

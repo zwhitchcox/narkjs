@@ -6,11 +6,17 @@ let koa    = require('koa'),
     auth   = require('./auth')
 
 let app    = koa()
+
+router.post('/auth',auth.authenticate)
+app.use(router.routes())
 app.use(serve('public'))
 app.use(auth.checkAuth)
 app.use(routes.index)
 
-router.post('/auth',auth.authenticate)
-app.use(router.routes())
 
-app.listen(3000);
+
+app.listen(3000, function() {
+    if (process.send) {
+        process.send('online')
+    }
+});

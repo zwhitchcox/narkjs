@@ -8,7 +8,10 @@ function create(__helpers) {
       __vendorscripts_marko = __loadTemplate(require.resolve("./vendorscripts.marko"), require),
       __ngtemplates_marko = __loadTemplate(require.resolve("./ngtemplates.marko"), require),
       forEach = __helpers.f,
-      attr = __helpers.a;
+      attr = __helpers.a,
+      __renderer = __helpers.r,
+      ___node_modules_browser_refresh_taglib_refresh_tag_js = __renderer(require("browser-refresh-taglib/refresh-tag")),
+      __tag = __helpers.t;
 
   return function render(data, out) {
     out.w('<!DOCTYPE html> <html ng-app="hep-rewards" ng-cloak><head><title>HEP Rewards</title>');
@@ -21,10 +24,10 @@ function create(__helpers) {
     __helpers.i(out, __vendorscripts_marko, {});
     __helpers.i(out, __ngtemplates_marko, {});
 
-    if (notEmpty(data.scripts)) {
+    if (notEmpty(data.srcs)) {
       out.w('<span>');
 
-      forEach(data.scripts, function(src) {
+      forEach(data.srcs, function(src) {
         out.w('<script' +
           attr("src", src) +
           '></script>');
@@ -32,6 +35,11 @@ function create(__helpers) {
 
       out.w('</span>');
     }
+    __tag(out,
+      ___node_modules_browser_refresh_taglib_refresh_tag_js,
+      {
+        "enabled": true
+      });
 
     out.w('</body></html>');
   };

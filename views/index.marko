@@ -11,9 +11,9 @@
   <include template='./vendorscripts.marko' />
   <include template='./ngtemplates.marko' />
   <!-- import all scripts from public directory -->
-  <span if="notEmpty(data.scripts)">
-    <script src="$src" for="src in data.scripts"></script>
+  <span if="notEmpty(data.srcs)">
+    <script src="$src" for="src in data.srcs"></script>
   </span>
-
+  <browser-refresh enabled="true" />
 </body>
 </html>

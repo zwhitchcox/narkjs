@@ -1,8 +1,9 @@
-'use strict'
+'use strict';
+
 let parse = require('co-body'),
     jwt   = require('jsonwebtoken')
 
-let secret = 'shhreallysecretomgforreals'
+let secret = 'shhreallysecretzomgforrealz'
 
 module.exports = {
     isAuth:       isAuth,
@@ -41,10 +42,10 @@ function* checkAuth (next) {
 }
 
 function* authenticate() {
+    console.log('hello')
     let body, claim
     
     body = yield parse(this)
-    
     if (body.username === 'Zane' && body.password === '1234') {
         claim = {
             userid: 1

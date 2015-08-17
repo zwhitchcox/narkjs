@@ -3,9 +3,11 @@
         .module('hep-rewards')
         .controller('NavLoginCtrl',NavLoginCtrl)
     
-    function NavLoginCtrl() {
+    NavLoginCtrl.$inject = ['Login']
+    
+    function NavLoginCtrl(Login) {
         var self = this
-        self.isLoggedIn = 
+        self.state = Login
         
     }
 })()

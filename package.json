@@ -9,8 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "browser-refresh-taglib": "^1.0.3",
     "co-body": "^3.1.0",
     "co-views": "^1.0.0",
+    "file": "^0.2.2",
     "jade": "^1.11.0",
     "jsonwebtoken": "^5.0.4",
     "koa": "^0.21.0",
