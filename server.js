@@ -13,8 +13,6 @@ app.use(serve('public'))
 app.use(auth.checkAuth)
 app.use(routes.index)
 
-
-
 app.listen(3000, function() {
     if (process.send) {
         process.send('online')

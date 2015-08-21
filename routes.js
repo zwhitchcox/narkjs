@@ -35,4 +35,3 @@ function reduceJS(prev,cur) {
     if (path.extname(cur)==='.js') prev.push(cur)
     return prev
 }
-
