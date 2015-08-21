@@ -1,6 +1,6 @@
 (function() {
     angular
-        .module('hep-rewards')
+        .module('app')
         .run(run)
     
     run.$inject = ['$rootScope','$state']

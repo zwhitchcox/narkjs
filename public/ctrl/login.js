@@ -1,6 +1,6 @@
 (function() {
     angular
-        .module('hep-rewards')
+        .module('app')
         .controller('LoginCtrl',LoginCtrl)
     
     LoginCtrl.$inject = ['$window','$state', 'Login','$mdToast','$http']

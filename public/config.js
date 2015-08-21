@@ -1,6 +1,6 @@
 (function() {
     angular
-        .module('hep-rewards')
+        .module('app')
         .config(config)
     config.$inject = ['$stateProvider','$locationProvider','$httpProvider','$provide']
     function config ($stateProvider, $locationProvider, $httpProvider,$provide) {

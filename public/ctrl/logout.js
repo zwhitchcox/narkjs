@@ -1,6 +1,6 @@
 (function() {
     angular
-        .module('hep-rewards')
+        .module('app')
         .controller('LogoutCtrl',LogoutCtrl)
     LogoutCtrl.$inject = ['$window', 'Login']
     function LogoutCtrl($window, Login) {

@@ -1,6 +1,6 @@
 (function() {
     angular
-        .module('hep-rewards')
+        .module('app')
         .controller('MainCtrl',MainCtrl)
     
     function MainCtrl() {

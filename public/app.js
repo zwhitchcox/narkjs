@@ -1,6 +1,6 @@
 (function() {
     angular
-        .module('hep-rewards',[
+        .module('app',[
             'ngMaterial',
             'ui.router'
         ])

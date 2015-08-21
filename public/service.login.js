@@ -1,6 +1,6 @@
 (function() {
     angular
-        .module('hep-rewards')
+        .module('app')
         .factory('Login',loginFactory)
     
     loginFactory.$inject = ['$window']
