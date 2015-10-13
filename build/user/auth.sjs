@@ -12,8 +12,8 @@ function main(nark) {
         checkAuth:    checkAuth,
         authenticate: authenticate
     }
-    nark = _.assign(nark,auth)
-    nark.post('/auth',auth.authenticate)
+    nark.auth = auth
+    nark.router.post('/auth',auth.authenticate)
 }
 
 function isAuth() {
