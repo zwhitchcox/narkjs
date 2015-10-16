@@ -1,0 +1,8 @@
+md-toolbar(layout="row")
+	div(class="md-toolbar-tools")
+		a(ui-sref="home")
+			h1 nark
+		span(flex)
+		span(ng-controller="NavLoginCtrl as nav")
+			md-button(ui-sref="login" ng-if="!nav.state.isLoggedIn") Login
+			md-button(ui-sref="logout" ng-if="nav.state.isLoggedIn") Logout

@@ -6,11 +6,11 @@
 	function config ($stateProvider) {
 		
 		$stateProvider
-			.state('home', {
+			.state('', {
 				url: '/',
-				templateUrl: 'templates/home.html',
-				controller: 'HomeCtrl',
-				controllerAs: 'home'
+				templateUrl: '',
+				controller: '',
+				controllerAs: ''
 			})
 	}
 })()
