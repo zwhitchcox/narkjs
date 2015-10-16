@@ -1,7 +1,13 @@
 (function() {
     angular
-        .module('nark',[
+        .module('app',[
             'ngMaterial',
-            'ui.router'
+            'ui.router',
+						'app.user',
+						'app.test'
         ])
+	angular
+		.module('app.user',[])
+	angular
+		.module('app.test',[])
 })()

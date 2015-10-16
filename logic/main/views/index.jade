@@ -1,0 +1,12 @@
+doctype html
+html(ng-app="app" ng-cloak)
+head
+	title Nark
+	include ./vendorstyles.jade
+	meta(name="viewport" content="initial-scale=1")
+body(ng-controller="MainCtrl as main" layout="column")
+	include ./header.jade
+	div(ui-view)
+	include ./vendorscripts.jade
+	include ./templates.jade
+	script(src="/app.min.js")

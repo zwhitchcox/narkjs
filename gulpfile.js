@@ -1,60 +1,50 @@
 'use strict'
-const gulp    = require('gulp'),
-	concat      = require('gulp-concat'),
-	uglify      = require('gulp-uglify'),
-	sourcemaps  = require('gulp-sourcemaps'),
-	del         = require('del'),
-	marko       = require('gulp-marko')
+const gulp   = require('gulp'),
+	concat     = require('gulp-concat'),
+	uglify     = require('gulp-uglify'),
+	sourcemaps = require('gulp-sourcemaps'),
+	del        = require('del'),
+	jade       = require('gulp-jade'),
+	spawn      = require('child_process').spawn
 
+var server;
 
 let paths = {
-	scripts: ['logic/**/*.js'],
-	server:  ['logic/**/*.sjs'],
-	marko:   ['logic/**/*.marko'],
-	other:   ['logic/**/*!(.js|.sjs|.marko)']
+	scripts: ['logic/!(snippets){,**/}*.js'],
+	server:  ['logic/{,**/}*.sjs'],
+	jade:    ['logic/{,**/}*.jade'],
+	other:   ['logic/{,**/}!(*.js|*.sjs|*.jade)']
 }
-gulp.task('clean', function() {
+gulp.task('clean', ()=> {
+	// ensures port will not be taken up when you quit gulp
+	if (typeof server !== 'undefined') 
+		require('child_process').execSync('kill -9 '+server.pid)
 	return del(['build'])
 })
-gulp.task('scripts', ['clean'], function() {
-	return gulp.src(paths.scripts)
-		.pipe(sourcemaps.init())
-			.pipe(uglify())
-			.pipe(concat('app.js'))
-		.pipe(sourcemaps.write())
+gulp.task('scripts', ['clean'], ()=> {
+	return gulp
+		.src(paths.scripts)
+		.pipe(concat('app.min.js'))
 		.pipe(gulp.dest('build'))
 })
-gulp.task('marko', ['clean'],function() {
-	gulp.src(paths.marko)
-		.pipe(marko())
+gulp.task('jade', ['clean'],()=> {
+	gulp
+		.src(paths.jade)
+		.pipe(jade())
 		.pipe(gulp.dest('build'))
 })
-gulp.task('other', ['clean'], function() {
-	gulp.src(paths.other)
+gulp.task('other', ['clean'], ()=> {
+	gulp
+		.src(paths.other)
 		.pipe(gulp.dest('build'))
 })
-gulp.task('watch',function() {
-	gulp.watch(paths.scripts, ['scripts'])
-	gulp.watch(paths.marko  , ['marko'])
-	gulp.watch(paths.other  , ['other'])
+gulp.task('watch',()=> {
+	gulp.watch(paths.scripts, ['jade','other','scripts','serve'])
+	gulp.watch(paths.jade	  , ['jade','other','scripts','serve'])
+	gulp.watch(paths.other	, ['jade','other','scripts','serve'])
+	gulp.watch(paths.server , ['jade','other','scripts','serve'])
 })
-
-gulp.task('serve', function() {
-	let nark = require('./nark')()
-	nark.BASEPATH = __dirname + '/build'
-	let stream = gulp.src(paths.server, {buffer:false})
-		.pipe(nark.serverCode(nark))
-		.pipe(gulp.dest('doesntdoanything'))
-	stream.on('end',function() {
-		nark.emit('built')
-	})
+gulp.task('serve',['scripts','jade','other'], ()=> {
+	server = spawn('node', ['./server.js'], {env:process.ENV,stdio:'inherit'})
 })
-
-gulp.task('default', [
-	'watch',	
-	'scripts',
-	'marko',
-	'other',
-	'serve'
-])
-
+gulp.task('default', ['watch','jade','other','scripts','serve'])

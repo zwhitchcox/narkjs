@@ -1,16 +1,16 @@
 (function() {
 	angular
-		.module('app')
+		.module('app.test')
 		.config(config)
 	config.$inject = ['$stateProvider']
 	function config ($stateProvider) {
 		
 		$stateProvider
-			.state('home', {
+			.state('logs', {
 				url: '/',
-				templateUrl: 'templates/home.html',
-				controller: 'HomeCtrl',
-				controllerAs: 'home'
+				templateUrl: 'test/view.html',
+				controller: 'Logs',
+				controllerAs: 'logs'
 			})
 	}
 })()
