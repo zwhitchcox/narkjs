@@ -5,7 +5,8 @@ const gulp   = require('gulp'),
 	sourcemaps = require('gulp-sourcemaps'),
 	del        = require('del'),
 	jade       = require('gulp-jade'),
-	spawn      = require('child_process').spawn
+	spawn      = require('child_process').spawn,
+	gutil      = require('gulp-util')
 
 var server;
 
@@ -24,7 +25,13 @@ gulp.task('clean', ()=> {
 gulp.task('scripts', ['clean'], ()=> {
 	return gulp
 		.src(paths.scripts)
+		.pipe(sourcemaps.init({
+			loadMaps:true
+		}))
+		.pipe(uglify())
+		.on('error', gutil.log)
 		.pipe(concat('app.min.js'))
+		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest('build'))
 })
 gulp.task('jade', ['clean'],()=> {
