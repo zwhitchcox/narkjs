@@ -3,11 +3,12 @@
         .module('app',[
             'ngMaterial',
             'ui.router',
+						'restangular',
 						'app.user',
-						'app.test'
+						'app.logs'
         ])
 	angular
 		.module('app.user',[])
 	angular
-		.module('app.test',[])
+		.module('app.logs',[])
 })()

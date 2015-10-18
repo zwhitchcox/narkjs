@@ -5,7 +5,8 @@ const gulp   = require('gulp'),
 	sourcemaps = require('gulp-sourcemaps'),
 	del        = require('del'),
 	jade       = require('gulp-jade'),
-	spawn      = require('child_process').spawn
+	spawn      = require('child_process').spawn,
+	gutil      = require('gulp-util')
 
 var server;
 
@@ -17,14 +18,24 @@ let paths = {
 }
 gulp.task('clean', ()=> {
 	// ensures port will not be taken up when you quit gulp
-	if (typeof server !== 'undefined') 
-		require('child_process').execSync('kill -9 '+server.pid)
-	return del(['build'])
+	if (typeof server !== 'undefined') { 
+		try {
+			require('child_process').execSync('kill -9 '+server.pid)
+		} catch (e) {
+			console.log(e)
+		}
+		return del(['build'])
+		}
 })
 gulp.task('scripts', ['clean'], ()=> {
 	return gulp
 		.src(paths.scripts)
-		.pipe(concat('app.min.js'))
+		.pipe(sourcemaps.init({
+			loadMaps:true
+		}))
+			.on('error',gutil.log)
+			.pipe(concat('app.min.js'))
+			.pipe(sourcemaps.write('build/sourcemaps'))
 		.pipe(gulp.dest('build'))
 })
 gulp.task('jade', ['clean'],()=> {

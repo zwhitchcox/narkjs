@@ -33,8 +33,8 @@ function isAuth() {
 function* checkAuth (next) {
 	let authHeader, token, elements, scheme
 	authHeader = this.get('Authorization')
-	if (authHeader && typeof elements !== 'undefined') {
-		elements.split(' ')
+	if (authHeader) {
+		elements = authHeader.split(' ')
 		if (elements.length === 2) {
 			scheme = elements[0]
 			if (scheme === 'Bearer') {
@@ -42,7 +42,6 @@ function* checkAuth (next) {
 				try {
 					this.user = jwt.verify(token, secret)
 				} catch (err) {
-					
 				}
 			}
 		}
