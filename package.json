@@ -16,6 +16,7 @@
     "concat": "^1.0.0",
     "del": "^2.0.2",
     "file": "^0.2.2",
+    "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-filenames": "^2.0.0",
     "gulp-foreach": "^0.1.0",

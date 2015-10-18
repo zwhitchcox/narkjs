@@ -18,9 +18,14 @@ let paths = {
 }
 gulp.task('clean', ()=> {
 	// ensures port will not be taken up when you quit gulp
-	if (typeof server !== 'undefined') 
-		require('child_process').execSync('kill -9 '+server.pid)
-	return del(['build'])
+	if (typeof server !== 'undefined') { 
+		try {
+			require('child_process').execSync('kill -9 '+server.pid)
+		} catch (e) {
+			console.log(e)
+		}
+		return del(['build'])
+		}
 })
 gulp.task('scripts', ['clean'], ()=> {
 	return gulp
