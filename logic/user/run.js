@@ -8,7 +8,7 @@
 		$rootScope.$on('$stateChangeError',onStateChangeError)
 		function onStateChangeError(event, toState, toParams, fromState, fromParams, error) {
 			if (error.status === 401) {
-				$state.go('login')
+				$state.go('home')
 			}
 		}
 	}

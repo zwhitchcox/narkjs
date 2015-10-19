@@ -2,9 +2,8 @@
 	angular
 		.module('app.logs')
 		.controller('LogsCtrl',LogsCtrl)
-	LogsCtrl.$inject = ['$http','Restangular']
-	function LogsCtrl($http,Restangular) {
-		
+	LogsCtrl.$inject = ['$http','Restangular','Login']
+	function LogsCtrl($http,Restangular,Login) {
 		var self = this
 		self.logs = Restangular
 			.all('api/logs')

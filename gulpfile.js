@@ -6,7 +6,8 @@ const gulp   = require('gulp'),
 	del        = require('del'),
 	jade       = require('gulp-jade'),
 	spawn      = require('child_process').spawn,
-	gutil      = require('gulp-util')
+	gutil      = require('gulp-util'),
+	footer     = require('gulp-footer')
 
 var server;
 
@@ -30,12 +31,13 @@ gulp.task('clean', ()=> {
 gulp.task('scripts', ['clean'], ()=> {
 	return gulp
 		.src(paths.scripts)
+		.pipe(footer(';'))
 		.pipe(sourcemaps.init({
 			loadMaps:true
 		}))
 			.on('error',gutil.log)
 			.pipe(concat('app.min.js'))
-			.pipe(sourcemaps.write('build/sourcemaps'))
+			.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest('build'))
 })
 gulp.task('jade', ['clean'],()=> {

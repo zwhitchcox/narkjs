@@ -12,10 +12,9 @@
 				controller: 'LogsCtrl',
 				controllerAs: 'logs',
 				resolve: {
-					authorize: function($stateProvider) {
-						console.log()
-						return true
-					}
+					loggedIn: ['Login',function(Login) {
+						return Login.checkLoggedIn()
+					}]
 				}
 			})
 	}
