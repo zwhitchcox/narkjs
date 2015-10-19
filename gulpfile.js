@@ -35,9 +35,10 @@ gulp.task('scripts', ['clean'], ()=> {
 		.pipe(sourcemaps.init({
 			loadMaps:true
 		}))
-			.on('error',gutil.log)
-			.pipe(concat('app.min.js'))
-			.pipe(sourcemaps.write('./'))
+		.pipe(uglify())
+		.on('error', gutil.log)
+		.pipe(concat('app.min.js'))
+		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest('build'))
 })
 gulp.task('jade', ['clean'],()=> {

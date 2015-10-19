@@ -1,0 +1,31 @@
+2015-10-19T14:44:32.837701349 0.110861s notice: Recursively removing directory /home/zane/nark/rethinkdb_data/tmp
+2015-10-19T14:44:32.847615832 0.120775s notice: Initializing directory /home/zane/nark/rethinkdb_data
+2015-10-19T14:44:32.848140052 0.121299s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/home/zane/nark/rethinkdb_data' did not already exist or is empty.)
+2015-10-19T14:44:32.848251434 0.121410s notice: Running rethinkdb 2.1.5+2~0trusty (GCC 4.8.2)...
+2015-10-19T14:44:32.854489024 0.127649s notice: Running on Linux 3.13.0-57-generic x86_64
+2015-10-19T14:44:32.854689979 0.127848s notice: Loading data from directory /home/zane/nark/rethinkdb_data
+2015-10-19T14:44:32.894120770 0.167294s info: Automatically using cache size of 100 MB
+2015-10-19T14:44:32.895009897 0.168168s warn: Cache size does not leave much memory for server and query overhead (available memory: 269 MB).
+2015-10-19T14:44:32.895441269 0.168600s warn: Cache size is very low and may impact performance.
+2015-10-19T14:44:32.896633262 0.169792s notice: Listening for intracluster connections on port 29015
+2015-10-19T14:44:32.905134808 0.178293s notice: Listening for client driver connections on port 28015
+2015-10-19T14:44:32.905654707 0.178813s notice: Listening for administrative HTTP connections on port 8080
+2015-10-19T14:44:32.905656360 0.178814s notice: Listening on addresses: 127.0.0.1, 127.0.1.1, ::1
+2015-10-19T14:44:32.905658183 0.178816s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2015-10-19T14:44:32.905659816 0.178818s notice: Server ready, "hep_944" 9afe3fd0-a8b8-4282-b30c-8d19ec293505
+2015-10-19T14:45:43.887356388 71.160516s notice: Server got SIGINT from pid 0, uid 0; shutting down...
+2015-10-19T14:45:43.887705292 71.160864s notice: Shutting down client connections...
+2015-10-19T14:45:43.888143242 71.161302s notice: All client connections closed.
+2015-10-19T14:45:43.888146499 71.161305s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2015-10-19T14:45:43.889675942 71.162834s notice: Storage engine shut down.
+2015-10-19T14:45:47.603936524 0.104949s notice: Running rethinkdb 2.1.5+2~0trusty (GCC 4.8.2)...
+2015-10-19T14:45:47.609080874 0.110095s notice: Running on Linux 3.13.0-57-generic x86_64
+2015-10-19T14:45:47.609350362 0.110362s notice: Loading data from directory /home/zane/nark/rethinkdb_data
+2015-10-19T14:45:47.623227053 0.124245s info: Automatically using cache size of 100 MB
+2015-10-19T14:45:47.623712582 0.124724s warn: Cache size does not leave much memory for server and query overhead (available memory: 269 MB).
+2015-10-19T14:45:47.624032475 0.125044s warn: Cache size is very low and may impact performance.
+2015-10-19T14:45:47.643128069 0.144140s notice: Listening for intracluster connections on port 29015
+2015-10-19T14:45:47.645896966 0.146909s notice: Listening for client driver connections on port 28015
+2015-10-19T14:45:47.646433461 0.147445s notice: Listening for administrative HTTP connections on port 8080
+2015-10-19T14:45:47.736602985 0.237615s notice: Listening on addresses: 127.0.0.1, 127.0.1.1, 10.17.0.5, 159.203.106.13, ::1, fe80::601:7dff:feaa:3801%2
+2015-10-19T14:45:47.736958917 0.237970s notice: Server ready, "hep_944" 9afe3fd0-a8b8-4282-b30c-8d19ec293505
