@@ -37,7 +37,7 @@ function logs(nark) {
 
 ### Routing
 
-How do I route REST API requests?
+*How do I route REST API requests?*
 
 use ```nark.router```
 
@@ -57,7 +57,7 @@ nark.router.get('/api/logs', function* logs() {
 
 ### Login
 
-How do I check if a user is logged in on the client side?
+*How do I check if a user is logged in on the client side?*
 
 use the abstract state, 'cl' (for 'client logged in'), which will redirect to the log in page if the user is not logged in
 
@@ -70,7 +70,7 @@ $state('cl.mypage', {
 })
 ```
 
-How do I check if a user is logged in on the server side?
+*How do I check if a user is logged in on the server side?*
 
 use the ```nark.auth.isAuth``` function to check if the user is logged in before serving the content
 
