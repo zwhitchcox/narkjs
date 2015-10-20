@@ -11,7 +11,7 @@ gulp, angular material, jade
 
 ### General
 
-How do I write server side code?
+*How do I write server side code?*
 
 all files with the extension ```sjs``` will be dependency injected with ```nark```. from here, you can do all kinds of things like routing, events, or whatever
 
