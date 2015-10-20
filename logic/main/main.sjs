@@ -10,7 +10,6 @@ function mainRoutes(nark) {
 			// someone probably is requesting a file
 			// that doesn't exist
 			ext = this.url.substring(this.url.lastIndexOf('.'))
-			console.log(ext)
 			if (ext === '.html'|| ext === '.js') {
 				this.throw(404)
 			}

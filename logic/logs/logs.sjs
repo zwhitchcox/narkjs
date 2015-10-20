@@ -6,8 +6,7 @@ function logs(nark) {
 			this.body = [{
 					id: 1,
 					description: 'Started Job Process!',
-					date: new Date() - 60000 * 50
-				}, {
+				} ,{
 					id: 2,
 					description: 'Completed Job Process!',
 					date: new Date
