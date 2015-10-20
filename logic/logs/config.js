@@ -5,15 +5,10 @@ config.$inject = ['$stateProvider']
 function config ($stateProvider) {
 	
 	$stateProvider
-		.state('logs', {
+		.state('loggedin.logs', {
 			url: '/logs',
 			templateUrl: 'logs/view.html',
 			controller: 'LogsCtrl',
-			controllerAs: 'logs',
-			resolve: {
-				loggedIn: ['Login',function(Login) {
-					return Login.checkLoggedIn()
-				}]
-			}
+			controllerAs: 'logs'
 		})
 }

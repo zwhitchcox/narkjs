@@ -25,6 +25,21 @@ function config ($stateProvider, $locationProvider, $httpProvider,$provide) {
 	
 	$httpProvider.interceptors.push('authInterceptor');
 	$stateProvider
+		.state('loggedin', {
+			abstract:true,
+			template: '<ui-view/>',
+			resolve: {
+				loggedin: ['$window','$timeout','$state',
+					function($window,$timeout,$state) {
+						if (!$window.localStorage.token)
+							$timeout(function() {
+								$state.go('login')
+							})
+						return ''
+					}
+				]
+			}
+		})
 		.state('login',{
 			url:'/login',
 			templateUrl:'user/view.login.html',
