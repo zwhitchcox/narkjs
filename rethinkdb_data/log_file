@@ -29,3 +29,8 @@
 2015-10-19T14:45:47.646433461 0.147445s notice: Listening for administrative HTTP connections on port 8080
 2015-10-19T14:45:47.736602985 0.237615s notice: Listening on addresses: 127.0.0.1, 127.0.1.1, 10.17.0.5, 159.203.106.13, ::1, fe80::601:7dff:feaa:3801%2
 2015-10-19T14:45:47.736958917 0.237970s notice: Server ready, "hep_944" 9afe3fd0-a8b8-4282-b30c-8d19ec293505
+2015-10-19T19:09:18.160684975 15810.661705s notice: Server got SIGINT from pid 0, uid 0; shutting down...
+2015-10-19T19:09:18.161553280 15810.662565s notice: Shutting down client connections...
+2015-10-19T19:09:18.162030102 15810.663042s notice: All client connections closed.
+2015-10-19T19:09:18.162262160 15810.663274s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2015-10-19T19:09:18.168969896 15810.669982s notice: Storage engine shut down.
