@@ -1,13 +1,11 @@
-(function() {
-	angular
-		.module('app')
-		.controller('NavLoginCtrl',NavLoginCtrl)
+angular
+	.module('app')
+	.controller('NavLoginCtrl',NavLoginCtrl)
 
-	NavLoginCtrl.$inject = ['Login']
+NavLoginCtrl.$inject = ['Login']
+
+function NavLoginCtrl(Login) {
+	var self = this
+	self.state = Login
 	
-	function NavLoginCtrl(Login) {
-		var self = this
-		self.state = Login
-		
-	}
-})()
+}

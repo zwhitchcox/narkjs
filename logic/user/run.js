@@ -1,4 +1,3 @@
-(function() {
 	angular
 		.module('app.user')
 		.run(run)
@@ -12,4 +11,4 @@
 			}
 		}
 	}
-})()
+}
