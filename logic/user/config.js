@@ -25,7 +25,7 @@ function config ($stateProvider, $locationProvider, $httpProvider,$provide) {
 	
 	$httpProvider.interceptors.push('authInterceptor');
 	$stateProvider
-		.state('log', {
+		.state('cl', {
 			abstract:true,
 			template: '<ui-view/>',
 			resolve: {
