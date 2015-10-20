@@ -1,11 +1,9 @@
-(function() {
-	angular
-		.module('app')
-		.controller('MainCtrl',MainCtrl)
+angular
+	.module('app')
+	.controller('MainCtrl',MainCtrl)
+
+function MainCtrl() {
+	var self = this
+	self.test = 'hello'
 	
-	function MainCtrl() {
-		var self = this
-		self.test = 'hello'
-		
-	}
-})()
+}
