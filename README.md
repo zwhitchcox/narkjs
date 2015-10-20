@@ -41,6 +41,7 @@ How do I route REST API requests?
 
 use ```nark.router```
 
+```js
 nark.router.get('/api/logs', function* logs() {
   this.body = [{
       id:1,
@@ -52,6 +53,7 @@ nark.router.get('/api/logs', function* logs() {
       date: new Date()
   }]
 })
+```
 
 ### Login
 
