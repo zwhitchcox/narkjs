@@ -1,5 +1,5 @@
 {
-  "name": "nark_module",
+  "name": "nark",
   "version": "1.0.0",
   "description": "dependency injection object for nark framework",
   "main": "nark.js",
