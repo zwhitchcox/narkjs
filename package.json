@@ -2,7 +2,7 @@
   "name": "nark_module",
   "version": "1.0.0",
   "description": "dependency injection object for nark framework",
-  "main": "index.js",
+  "main": "nark.js",
   "scripts": {
     "test": "mocha --harmony"
   },

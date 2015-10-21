@@ -1,9 +1,9 @@
 'use strict'
-const koa        = require('koa'),
+const koa      = require('koa'),
 	router       = require('koa-router'),
 	serve        = require('koa-static'),
-	sendfile		 = require('koa-sendfile'),
-	thinky		   = require('thinky'),
+	sendfile     = require('koa-sendfile'),
+	thinky       = require('thinky'),
 	EventEmitter = require('events').EventEmitter,
 	gulp         = require('gulp'),
 	path         = require('path')
@@ -21,7 +21,7 @@ function Nark(config) {
 		self.serve      = serve,
 		self.sendfile   = sendfile,
 		self.serverCode = require('./server-code')
-		self.BASEPATH   = path.normalize(__dirname + '/..')
+		self.BASEPATH   = path.normalize(__dirname + '/../..')
 	// dependency inject nark into
 	// all server side js files (sjs)
 	let stream = gulp
