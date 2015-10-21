@@ -1,0 +1,38 @@
+{
+  "name": "nark",
+  "version": "1.0.0",
+  "description": "dependency injection object for nark framework",
+  "main": "nark.js",
+  "scripts": {
+    "test": "mocha --harmony"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zwhitchcox/nark_module.git"
+  },
+  "keywords": [
+    "nark",
+    "node",
+    "angular",
+    "jade",
+    "koa",
+    "tdd",
+    "es6",
+    "harmony",
+    "generators"
+  ],
+  "author": {
+    "name": "Zane Hitchcox"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zwhitchcox/nark_module/issues"
+  },
+  "homepage": "https://github.com/zwhitchcox/nark_module#readme",
+  "gitHead": "55c16d66bcafe9dc264ed21a0b74e2ae27bc0ebd",
+  "readme": "ERROR: No README data found!",
+  "_id": "nark@1.0.0",
+  "_shasum": "bed924871f74494349e96265815128ba5f458812",
+  "_from": "zwhitchcox/nark",
+  "_resolved": "git://github.com/zwhitchcox/nark.git#55c16d66bcafe9dc264ed21a0b74e2ae27bc0ebd"
+}
