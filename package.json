@@ -47,4 +47,30 @@
     "co-mocha": "^1.1.2",
     "mocha": "^2.3.3"
   }
+  "description": "dependency injection object for nark framework",
+  "main": "nark.js",
+  "scripts": {
+    "test": "mocha --harmony"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zwhitchcox/nark_module.git"
+  },
+  "keywords": [
+    "nark",
+    "node",
+    "angular",
+    "jade",
+    "koa",
+    "tdd",
+    "es6",
+    "harmony",
+    "generators"
+  ],
+  "author": "Zane Hitchcox",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zwhitchcox/nark_module/issues"
+  },
+  "homepage": "https://github.com/zwhitchcox/nark_module#readme"
 }
