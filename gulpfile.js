@@ -13,8 +13,8 @@ const gulp   = require('gulp'),
 var server;
 
 let paths = {
-	scripts: ['logic/!(snippets){,**/}*.js'],
-	server:  ['logic/{,**/}*.sjs'],
+	scripts: ['logic/!(snippets){,**/}!(*.spec.js)*.js'],
+	server:  ['logic/{,**/}!(*.spec.sjs)*.sjs'],
 	jade:    ['logic/{,**/}*.jade'],
 	other:   ['logic/{,**/}!(*.js|*.sjs|*.jade)']
 }
