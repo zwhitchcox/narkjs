@@ -7,5 +7,5 @@ function assignDependency(nark) {
 }
 
 function User(properties) {
-	
+	_.assign(this,properties)
 }

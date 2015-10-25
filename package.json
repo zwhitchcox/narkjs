@@ -1,12 +1,12 @@
 {
   "name": "nark",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "dependency injection object for nark framework",
+  "main": "nark.js",
   "scripts": {
-    "test": "mocha ./**/*.spec.sjs"
+    "test": "mocha --harmony"
   },
-  "author": "",
+  "author": "Zane Hitchcox",
   "license": "ISC",
   "dependencies": {
     "browser-refresh-taglib": "^1.0.3",
@@ -28,6 +28,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.4.1",
     "gulp-util": "^3.0.6",
+    "imagemin-pngquant": "^4.2.0",
     "jade": "^1.11.0",
     "jsonwebtoken": "^5.4.0",
     "koa": "^0.21.0",
@@ -39,18 +40,15 @@
     "marko": "^2.7.9",
     "nark": "zwhitchcox/nark",
     "nark_module": "zwhitchcox/nark",
+    "pngquant": "^0.6.0",
     "thinky": "^2.1.9",
     "through2": "^2.0.0",
     "vinyl-paths": "^2.0.0"
   },
   "devDependencies": {
     "co-mocha": "^1.1.2",
+    "gulp-debug": "^2.1.2",
     "mocha": "^2.3.3"
-  }
-  "description": "dependency injection object for nark framework",
-  "main": "nark.js",
-  "scripts": {
-    "test": "mocha --harmony"
   },
   "repository": {
     "type": "git",
@@ -67,8 +65,6 @@
     "harmony",
     "generators"
   ],
-  "author": "Zane Hitchcox",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/zwhitchcox/nark_module/issues"
   },

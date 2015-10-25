@@ -8,15 +8,18 @@ const gulp   = require('gulp'),
 	spawn      = require('child_process').spawn,
 	gutil      = require('gulp-util'),
 	header     = require('gulp-header'),
-	footer     = require('gulp-footer')
+	footer     = require('gulp-footer'),
+	imagemin   = require('gulp-imagemin'),
+	pngquant   = require('imagemin-pngquant'),
+	debug      = require('gulp-debug')
 
 var server;
-
+let mainTasks = ['jade','other','images','scripts','serve']
 let paths = {
 	scripts: ['logic/!(snippets){,**/}!(*.spec.js)*.js'],
-	server:  ['logic/{,**/}!(*.spec.sjs)*.sjs'],
 	jade:    ['logic/{,**/}*.jade'],
-	other:   ['logic/{,**/}!(*.js|*.sjs|*.jade)']
+	images:  ['logic/{,**/}*.jpg'],
+	other:   ['logic/{,**/}!(*.js|*.sjs|*.jade|*.png|*.jpe?g|*.gif)']
 }
 gulp.task('clean', ()=> {
 	// ensures port will not be taken up when you quit gulp
@@ -28,6 +31,11 @@ gulp.task('clean', ()=> {
 		}
 		return del(['build'])
 		}
+})
+gulp.task('images', ['clean'], function() {
+	return gulp.src(paths.images)
+		.pipe(imagemin())
+		.pipe(gulp.dest('build'))
 })
 gulp.task('scripts', ['clean'], ()=> {
 	return gulp
@@ -53,12 +61,13 @@ gulp.task('other', ['clean'], ()=> {
 		.pipe(gulp.dest('build'))
 })
 gulp.task('watch',()=> {
-	gulp.watch(paths.scripts, ['jade','other','scripts','serve'])
-	gulp.watch(paths.jade	  , ['jade','other','scripts','serve'])
-	gulp.watch(paths.other	, ['jade','other','scripts','serve'])
-	gulp.watch(paths.server , ['jade','other','scripts','serve'])
+	gulp.watch(paths.scripts, mainTasks)
+	gulp.watch(paths.jade	  , mainTasks)
+	gulp.watch(paths.other	, mainTasks)
+	gulp.watch(paths.server , mainTasks)
 })
+
 gulp.task('serve',['scripts','jade','other'], ()=> {
 	server = spawn('node', ['./server.js'], {env:process.ENV,stdio:'inherit'})
 })
-gulp.task('default', ['watch','jade','other','scripts','serve'])
+gulp.task('default', ['watch'].concat(mainTasks))
