@@ -1,19 +1,19 @@
 angular
 	.module('app.user')
-	.controller('LoginCtrl',LoginCtrl)
+	.controller('RegisterCtrl',RegisterCtrl)
 
-LoginCtrl.$inject = ['$window','$state', 'Login','$mdToast','Restangular']
+RegisterCtrl.$inject = ['Restangular','Login']
 
-function LoginCtrl($window, $state, Login, $mdToast, Restangular) {
+function RegisterCtrl(Restangular,Login) {
 	var self = this
-	self.login = login
-	var user = Restangular.all('auth')
+	var user = Restangular.all('register')
+	self.register = register
 	
-	function login(credentials) {
+	function register(credentials) {
 		user.post(credentials)
-			.then(getResponse,onErr)
+			.then(getResponse,onError)
 	}
-	
+
 	function getResponse(response) {
 		if (response.data.token) {
 			$window.localStorage.token = response.data.token

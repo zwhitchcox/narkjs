@@ -2,7 +2,6 @@ module.exports = mainRoutes
 
 function mainRoutes(nark) {
 	nark.on('built', () => {
-		nark.emit('starting routes')
 		nark.app.use(nark.router.routes())
 		nark.app.use(nark.serve(nark.BASEPATH))
 		nark.app.use(function*(next) {

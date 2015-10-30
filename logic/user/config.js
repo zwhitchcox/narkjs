@@ -52,4 +52,16 @@ function config ($stateProvider, $locationProvider, $httpProvider,$provide) {
 			controller:'LogoutCtrl',
 			controllerAs:'logout'
 		})
+		.state('reset',{
+			url:'/reset',
+			templateUrl:'user/view.reset.html',
+			controller:'ResetCtrl',
+			controllerAs:'reset'
+		})
+		.state('register',{
+			url:'/register',
+			templateUrl:'user/view.register.html',
+			controller:'RegisterCtrl',
+			controllerAs:'register'
+		})
 	}

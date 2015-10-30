@@ -17,9 +17,10 @@ var server;
 let mainTasks = ['jade','other','images','scripts','serve']
 let paths = {
 	scripts: ['logic/!(snippets){,**/}!(*.spec.js)*.js'],
+	server:  ['logic/{,**/}+(*.sjs|*.ijs)'],
 	jade:    ['logic/{,**/}*.jade'],
-	images:  ['logic/{,**/}*.jpg'],
-	other:   ['logic/{,**/}!(*.js|*.sjs|*.jade|*.png|*.jpe?g|*.gif)']
+	images:  ['logic/{,**/}*.{jp?(e)g,png,gif}'],
+	other:   ['logic/{,**/}!(*.js|*.ijs|*.sjs|*.jade|*.png|*.jpe?g|*.gif)']
 }
 gulp.task('clean', ()=> {
 	// ensures port will not be taken up when you quit gulp

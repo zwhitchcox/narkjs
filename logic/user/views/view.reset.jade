@@ -1,0 +1,12 @@
+div(layout="row" style="margin-top:15vh" layout-align="space-around center")
+	md-whiteframe(flex="33" layout-padding class="md-whiteframe-z3")
+		form(ng-submit="reset.reset(credentials)")
+			div(layout="row" layout-align="center center")
+			h1(class="md-title" layout-padding) Reset Your Password
+			md-divider
+			div(layout-padding layout="column")
+				md-input-container(flex)
+					label Email
+					input(ng-model="credentials.email")
+			div(layout-fill layout="row")
+				md-button(flex) Reset Password

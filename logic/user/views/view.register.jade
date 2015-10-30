@@ -1,8 +1,8 @@
 div(layout="row" style="margin-top:15vh" layout-align="space-around center")
 	md-whiteframe(flex="33" layout-padding class="md-whiteframe-z3")
-		form(ng-submit="login.login(credentials)")
+		form(ng-submit="register.register(credentials)")
 			div(layout="row" layout-align="center center")
-			h1(class="md-title" layout-padding) Log into nark
+			h1(class="md-title" layout-padding) Register 
 			md-divider
 			div(layout-padding layout="column")
 				md-input-container(flex)
@@ -12,4 +12,4 @@ div(layout="row" style="margin-top:15vh" layout-align="space-around center")
 					label Password
 					input(ng-model="credentials.password")
 			div(layout-fill layout="row")
-				md-button(flex) Login
+				md-button(flex) Register
