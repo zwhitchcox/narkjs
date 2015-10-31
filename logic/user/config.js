@@ -42,25 +42,25 @@ function config ($stateProvider, $locationProvider, $httpProvider,$provide) {
 		})
 		.state('login',{
 			url:'/login',
-			templateUrl:'user/view.login.html',
+			templateUrl:'user/views/view.login.html',
 			controller:'LoginCtrl',
 			controllerAs:'login'
 		})
 		.state('logout',{
 			url:'/logout',
-			templateUrl:'user/view.logout.html',
+			templateUrl:'user/views/view.logout.html',
 			controller:'LogoutCtrl',
 			controllerAs:'logout'
 		})
 		.state('reset',{
 			url:'/reset',
-			templateUrl:'user/view.reset.html',
+			templateUrl:'user/views/view.reset.html',
 			controller:'ResetCtrl',
 			controllerAs:'reset'
 		})
 		.state('register',{
 			url:'/register',
-			templateUrl:'user/view.register.html',
+			templateUrl:'user/views/view.register.html',
 			controller:'RegisterCtrl',
 			controllerAs:'register'
 		})

@@ -1,10 +1,12 @@
+'use strict'
+
 angular
 	.module('app.logs')
 	.controller('LogsCtrl',LogsCtrl)
 LogsCtrl.$inject = ['$http','Restangular']
 function LogsCtrl($http,Restangular) {
 	
-	var self = this
+	let self = this
 	self.logs = Restangular
 		.all('api/logs')
 		.getList()

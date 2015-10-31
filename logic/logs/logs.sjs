@@ -1,7 +1,7 @@
 module.exports = logs
 
-function logs(nark) {
-	nark.router.get('/api/logs', nark.auth.isAuth(),function* logs() {
+function logs() {
+	this.router.get('/api/logs', this.auth.isAuth(),function* logs() {
 		this.body = [{
 				id: 1,
 				description: 'Started Job Process!',

@@ -15,8 +15,8 @@ function LoginCtrl($window, $state, Login, $mdToast, Restangular) {
 	}
 	
 	function getResponse(response) {
-		if (response.data.token) {
-			$window.localStorage.token = response.data.token
+		if (response.token) {
+			$window.localStorage.token = response.token
 			Login.isLoggedIn = true
 			$state.go('home')
 		} else {

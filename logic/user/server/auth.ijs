@@ -2,23 +2,22 @@
 
 let parse  = require('co-body'),
 	jwt	= require('jsonwebtoken'),
-	_	  = require('lodash'),
-	secret = 'shhreallysecretzomgforrealz'
+	_	  = require('lodash')
 
 module.exports = main
-function main(n) {
+function main() {
 	let auth = {
 		isAuth:	   isAuth,
 		checkAuth:	checkAuth,
 		authenticate: authenticate
 	}
-	n.auth = auth
-	n.app.use(n.auth.checkAuth)
-	n.router.post('/auth',auth.authenticate)
+	this.auth = auth
+	this.app.use(this.auth.checkAuth)
+	this.router.post('/auth',auth.authenticate)
 
 	function isAuth() {
 		return function*(next) {
-			if (this.user && this.user.userid > 0) {
+			if (this.user && this.user.iat > 0) {
 				yield next
 			} else {
 				this.throw(401, 'must be logged in to view that page')
@@ -36,7 +35,7 @@ function main(n) {
 				if (scheme === 'Bearer') {
 					token = elements[1]
 					try {
-						this.user = jwt.verify(token, secret)
+						this.user = jwt.verify(token, this.config.secret)
 					} catch (err) {
 					}
 				}
@@ -49,14 +48,14 @@ function main(n) {
 		let body, claim
 		
 		body = yield parse(this)
-		let user = yield n.User.findByEmail(body.email)
+		let user = yield this.User.findByEmail(body.email)
 		if (!user.length) {
 			this.throw(401, 'Couldn\'t find your email')
 		}
-	
+		user = new this.User(user[0])
 		if (yield user.isPassword(body.password)) {
 			this.body = {
-				token: jwt.sign(user, secret)
+				token: jwt.sign(user, this.config.secret)
 			}
 		} else {
 			this.throw(401, 'Wrong username or password')

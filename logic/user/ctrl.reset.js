@@ -10,8 +10,8 @@ function ResetCtrl(Restangular) {
 	self.reset = reset
 	
 	function reset(email) {
-		user.post(credentials)
-			.then(getResponse,onError)
+		user.post(email)
+			.then(getResponse,onErr)
 	}
 
 	function getResponse(response) {

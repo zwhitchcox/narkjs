@@ -9,18 +9,16 @@ const gulp   = require('gulp'),
 	gutil      = require('gulp-util'),
 	header     = require('gulp-header'),
 	footer     = require('gulp-footer'),
-	imagemin   = require('gulp-imagemin'),
-	pngquant   = require('imagemin-pngquant'),
-	debug      = require('gulp-debug')
+	debug      = require('gulp-debug'),
+	babel      = require('gulp-babel')
 
 var server;
-let mainTasks = ['jade','other','images','scripts','serve']
+let mainTasks = ['jade','other','scripts','serve']
 let paths = {
-	scripts: ['logic/!(snippets){,**/}!(*.spec.js)*.js'],
-	server:  ['logic/{,**/}+(*.sjs|*.ijs)'],
-	jade:    ['logic/{,**/}*.jade'],
-	images:  ['logic/{,**/}*.{jp?(e)g,png,gif}'],
-	other:   ['logic/{,**/}!(*.js|*.ijs|*.sjs|*.jade|*.png|*.jpe?g|*.gif)']
+	scripts:  ['logic/!(snippets){,**/}!(*.spec.js)*.js'],
+	server:   ['logic/{,**/}+(*.sjs|*.ijs)'],
+	jade:     ['logic/{,**/}*.jade'],
+	other:    ['logic/{,**/}!(*.md|*.js|*.ijs|*.sjs|*.jade|*.png|*.jpe?g|*.gif)']
 }
 gulp.task('clean', ()=> {
 	// ensures port will not be taken up when you quit gulp
@@ -30,13 +28,8 @@ gulp.task('clean', ()=> {
 		} catch (e) {
 			console.log(e)
 		}
-		return del(['build'])
 		}
-})
-gulp.task('images', ['clean'], function() {
-	return gulp.src(paths.images)
-		.pipe(imagemin())
-		.pipe(gulp.dest('build'))
+		return del(['build'])
 })
 gulp.task('scripts', ['clean'], ()=> {
 	return gulp
@@ -45,7 +38,10 @@ gulp.task('scripts', ['clean'], ()=> {
 			loadMaps:true
 		}))
 		.pipe(header('(function () {'))
-		.pipe(footer('})();')) 
+		.pipe(footer('})();'))
+		.pipe(babel({
+			presets: ['babel-preset-es2015']
+		}))
 		.pipe(concat('app.min.js'))
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest('build'))
@@ -69,6 +65,6 @@ gulp.task('watch',()=> {
 })
 
 gulp.task('serve',['scripts','jade','other'], ()=> {
-	server = spawn('node', ['./server.js'], {env:process.ENV,stdio:'inherit'})
+	server = spawn('node', [__dirname+'/nark'], {env:process.ENV,stdio:'inherit'})
 })
 gulp.task('default', ['watch'].concat(mainTasks))

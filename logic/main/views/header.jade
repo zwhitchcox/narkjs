@@ -5,4 +5,5 @@ md-toolbar(layout="row")
 		span(flex)
 		span(ng-controller="NavLoginCtrl as nav")
 			md-button(ui-sref="login" ng-if="!nav.state.isLoggedIn") Login
+			md-button(ui-sref="register" ng-if="!nav.state.isLoggedIn") Register
 			md-button(ui-sref="logout" ng-if="nav.state.isLoggedIn") Logout
