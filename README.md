@@ -7,7 +7,19 @@ Key technologies:
 
 gulp, angular material, jade
 
-##FAQ##
+## Installation
+
+1. clone the github repository using your app name as the directory
+
+```shell
+git clone http://github.com/zwhitchcox/narkjs [YOUR APP NAME]
+```
+
+2. [install rethinkdb](https://www.rethinkdb.com/docs/install/)
+
+3. Profit
+
+##FAQ
 
 ### General
 
@@ -39,11 +51,16 @@ function logs(nark) {
 
 Use the file extension `ijs`
 
-#### How can I implement test driven development (TDD)?
+### Test Driven Development (TDD)
 
-Using the file extension `tjs` will cause gulp to ignore your test code.
+#### How do I write a test file?
 
-You can build nark in the code you wish to test and instantiate the database like so:
+using the file extension `tjs` will cause gulp to ignore your test code,
+and mocha will automatically look for this file extension when you use ```npm test```
+
+#### How do I include nark in my tests?
+
+just use ```require([PATH TO NARK])([CONFIG OBJECT])``` like so:
 
 ```js
 'use strict'
@@ -61,13 +78,20 @@ let config = {
 require('co-mocha')
 ```
 
-Then, you can execute the tests using nark, e.g.
+#### How do I write a test function?
+
+after you include nark, you can make sure it is built like so:
 
 ```js
 describe('User Model testing', function() {
   it('should build node properly', function *(done) {
     n.on('built',done)
   })  
+```
+
+and then continue building your code like normal:
+
+```js
   it ('should create a user', function *() {
     User = n.User
     let user = new User({email:'zane',password:'password'})
@@ -89,7 +113,7 @@ describe('User Model testing', function() {
     assert(user.id)
     user.delete()
   })
-  ```
+```
 
 ### Routing
 

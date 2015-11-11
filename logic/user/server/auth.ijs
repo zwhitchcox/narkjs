@@ -6,14 +6,15 @@ let parse  = require('co-body'),
 
 module.exports = main
 function main() {
-	let auth = {
+	let nark = this,
+	auth = {
 		isAuth:	   isAuth,
 		checkAuth:	checkAuth,
 		authenticate: authenticate
 	}
-	this.auth = auth
-	this.app.use(this.auth.checkAuth)
-	this.router.post('/auth',auth.authenticate)
+	nark.auth = auth
+	nark.app.use(nark.auth.checkAuth)
+	nark.router.post('/auth',auth.authenticate)
 
 	function isAuth() {
 		return function*(next) {
@@ -35,7 +36,7 @@ function main() {
 				if (scheme === 'Bearer') {
 					token = elements[1]
 					try {
-						this.user = jwt.verify(token, this.config.secret)
+						this.user = jwt.verify(token, nark.config.secret)
 					} catch (err) {
 					}
 				}
@@ -48,11 +49,11 @@ function main() {
 		let body, claim
 		
 		body = yield parse(this)
-		let user = yield this.User.findByEmail(body.email)
+		let user = yield nark.User.findByEmail(body.email)
 		if (!user.length) {
 			this.throw(401, 'Couldn\'t find your email')
 		}
-		user = new this.User(user[0])
+		user = new nark.User(user[0])
 		if (yield user.isPassword(body.password)) {
 			this.body = {
 				token: jwt.sign(user, this.config.secret)

@@ -11,14 +11,14 @@ let parse    = require('co-body'),
 module.exports = main
 
 function main() {
-	console.log('register')
-	this.router.post('/reset',reset)
-	this.router.post('/register',register)
+	let nark = this
+	nark.router.post('/reset',reset)
+	nark.router.post('/register',register)
 
 	function* reset() {
 		let newPassword = generatePassword(),
 			body = yield parse(this),
-			user = yield this.User.findByEmail(body.email)
+			user = yield nark.User.findByEmail(body.email)
 		if (!user.length) {
 			this.throw(401, 'Couldn\'t find your email')
 		} else {
@@ -28,7 +28,7 @@ function main() {
 				'Your new password is ' + newPassword + '.\n\nNark'
 			mailOptions.html = 'Hi,<br><br>Your password was reset.<br><br>'+
 				'Your new password is ' + newPassword + '.<br><br>Nark'
-			this.transporter.sendMail(mailOptions,function(error, info) {
+			nark.transporter.sendMail(mailOptions,function(error, info) {
 				if (error) {
 					return console.log(error)
 				}
@@ -44,7 +44,7 @@ function main() {
 		let that = this
 		let body = yield parse(this),
 			credentials = _.pick(body,USER_SCHEMA),
-			user = new this.User(credentials)
+			user = new nark.User(credentials)
 			yield user.hashPassword()
 		yield user.save().then(function(result) {
 			mailOptions.to = result.email
@@ -64,7 +64,7 @@ function main() {
 			return that.throw(401, 'A user has already been registered with that email')
 		})
 		this.body = {
-			token: jwt.sign(credentials, this.config.secret)
+			token: jwt.sign(credentials, nark.config.secret)
 		}
 	}
 }
