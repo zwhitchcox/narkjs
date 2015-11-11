@@ -142,6 +142,7 @@ nark.router.get('/api/logs', nark.auth.isAuth(), function* logs() {
       date: new Date()
   }]
 })
+```
 
 ### Troubleshooting
 
