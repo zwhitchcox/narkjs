@@ -35,6 +35,62 @@ function logs(nark) {
 }
 ```
 
+*How do I write server site code without injecting the nark dependency and running it with gulp?*
+
+Use the file extension `ijs`
+
+*How can I implement test driven development (TDD)?*
+
+Using the file extension `tjs` will cause gulp to ignore your test code.
+
+You can build nark in the code you wish to test and instantiate the database like so:
+
+```js
+'use strict'
+const assert = require('assert')
+let config = { 
+    rethinkdb: {
+      host: "localhost",
+      port: 28015,
+      authKey: "", 
+      db: "test"
+    }   
+  },  
+  n = require('../../nark')(config)
+
+require('co-mocha')
+```
+
+Then, you can execute the tests using nark, e.g.
+
+```js
+describe('User Model testing', function() {
+  it('should build node properly', function *(done) {
+    n.on('built',done)
+  })  
+  it ('should create a user', function *() {
+    User = n.User
+    let user = new User({email:'zane',password:'password'})
+    assert.equal(typeof user, 'object')
+  })  
+  it('should store properties passed when instantiated', function*() {
+    let email, user
+    email = 'zane'
+    user = new User({email: email})
+    assert.equal(user.email, email)
+    user.delete()
+  })  
+  it('should assign an id after being saved', function *() {
+    let email, password, user
+    email = 'zane'
+    password = 'password'
+    user = new User({email:email,password:password})
+    yield user.save()
+    assert(user.id)
+    user.delete()
+  })
+  ```
+
 ### Routing
 
 *How do I route REST API requests?*
@@ -86,3 +142,13 @@ nark.router.get('/api/logs', nark.auth.isAuth(), function* logs() {
       date: new Date()
   }]
 })
+
+### Troubleshooting
+
+*How do I fix an EADDRINUSE error?*
+
+on Unix systems, you can type ```killall gulp node```. however, this will also kill
+any other node or gulp processes you have.
+
+if this behavior is undesirable, you can search for the process ids with ```ps aux | grep "node|gulp"```
+and kill the specific processes you want to kill with ```kill [process id] [process id]
