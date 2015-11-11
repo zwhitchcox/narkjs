@@ -1,8 +1,10 @@
+'use strict'
 module.exports = main
 
-function main(nark) {
-	require('./user.ijs')(nark)
-	require('./auth.ijs')(nark)
+function main() {
+	let self = this
+	require('./user.ijs').call(self)
+	require('./auth.ijs').call(self)
 }
 
 

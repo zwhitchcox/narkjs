@@ -2,7 +2,6 @@ angular
 	.module('app.user')
 	.controller('ResetCtrl',ResetCtrl)
 
-ResetCtrl.$inject = ['Restangular']
 
 function ResetCtrl(Restangular) {
 	var self = this

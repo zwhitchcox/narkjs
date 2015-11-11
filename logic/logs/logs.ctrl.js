@@ -3,7 +3,6 @@
 angular
 	.module('app.logs')
 	.controller('LogsCtrl',LogsCtrl)
-LogsCtrl.$inject = ['$http','Restangular']
 function LogsCtrl($http,Restangular) {
 	
 	let self = this

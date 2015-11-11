@@ -2,8 +2,6 @@ angular
 	.module('app.user')
 	.controller('RegisterCtrl',RegisterCtrl)
 
-RegisterCtrl.$inject = ['Restangular','Login','$mdToast','$window','$state']
-
 function RegisterCtrl(Restangular,Login,$mdToast,$window,$state) {
 	var self = this
 	var user = Restangular.all('register')

@@ -1,5 +1,5 @@
 doctype html
-html(ng-app="app" ng-cloak)
+html(ng-app="app" ng-cloak ng-strict-di)
 head
 	title Nark
 	link(rel="stylesheet" type="text/css" href="/config/style.css")
@@ -9,5 +9,4 @@ body(ng-controller="MainCtrl as main" layout="column")
 	include ./header.jade
 	div(ui-view)
 	include ./vendorscripts.jade
-	include ./templates.jade
 	script(src="/app.min.js")

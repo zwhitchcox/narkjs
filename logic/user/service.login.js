@@ -2,7 +2,6 @@ angular
 	.module('app.user')
 	.factory('Login',loginFactory)
 
-loginFactory.$inject = ['$window','$timeout','$state']
 
 function loginFactory($window,$timeout,$state) {
 	var isLoggedIn;

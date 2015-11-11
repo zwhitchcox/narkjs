@@ -32,11 +32,11 @@ function Nark(config) {
 	// load these first for convenience, not having to emit events
 	glob
 		.sync(self.BASEPATH+'/logic/{,**/}pre.*.sjs',{realpath:true,cwd:self.BASEPATH})
-		.forEach((path) => {console.log('path: ' + path); require.call(self,path)})
+		.forEach((path) => {require(path).call(self)})
 	glob
 		.sync(self.BASEPATH+'/logic/{,**/}!(pre.)*.sjs',{realpath:true,cwd:self.BASEPATH})
-		.forEach(require.call(self,path))
-	self.app.listen(4000,console.log('listening on port 4000'))
+		.forEach((path) => {require(path).call(self)})
+	self.emit('built')
 }
 Nark.prototype = Object.create(EventEmitter.prototype)
 

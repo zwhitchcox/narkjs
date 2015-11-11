@@ -1,7 +1,6 @@
 angular
 	.module('app.user')
 	.config(config)
-config.$inject = ['$stateProvider','$locationProvider','$httpProvider','$provide']
 function config ($stateProvider, $locationProvider, $httpProvider,$provide) {
 	$locationProvider.html5Mode({
 		enabled:	 true,

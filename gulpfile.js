@@ -10,7 +10,8 @@ const gulp   = require('gulp'),
 	header     = require('gulp-header'),
 	footer     = require('gulp-footer'),
 	debug      = require('gulp-debug'),
-	babel      = require('gulp-babel')
+	babel      = require('gulp-babel'),
+	ngAnnotate = require('gulp-ng-annotate')
 
 var server;
 let mainTasks = ['jade','other','scripts','serve']
@@ -37,6 +38,7 @@ gulp.task('scripts', ['clean'], ()=> {
 		.pipe(sourcemaps.init({
 			loadMaps:true
 		}))
+		.pipe(ngAnnotate())
 		.pipe(header('(function () {'))
 		.pipe(footer('})();'))
 		.pipe(babel({

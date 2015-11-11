@@ -2,8 +2,6 @@ angular
 	.module('app.user')
 	.controller('LoginCtrl',LoginCtrl)
 
-LoginCtrl.$inject = ['$window','$state', 'Login','$mdToast','Restangular']
-
 function LoginCtrl($window, $state, Login, $mdToast, Restangular) {
 	var self = this
 	self.login = login
