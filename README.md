@@ -152,4 +152,4 @@ on Unix systems, you can type ```killall gulp node```. however, this will also k
 any other node or gulp processes you have.
 
 if this behavior is undesirable, you can search for the process ids with ```ps aux | grep "node|gulp"```
-and kill the specific processes you want to kill with ```kill [process id] [process id]
+and kill the specific processes you want to kill with ```kill [process id] [process id]```
