@@ -11,7 +11,7 @@ gulp, angular material, jade
 
 ### General
 
-*How do I write server side code?*
+#### How do I write server side code?
 
 all files with the extension ```sjs``` will be dependency injected with ```nark```. from here, you can do all kinds of things like routing, events, or whatever
 
@@ -35,11 +35,11 @@ function logs(nark) {
 }
 ```
 
-*How do I write server site code without injecting the nark dependency and running it with gulp?*
+#### How do I write server site code without injecting the nark dependency and running it with gulp?
 
 Use the file extension `ijs`
 
-*How can I implement test driven development (TDD)?*
+#### How can I implement test driven development (TDD)?
 
 Using the file extension `tjs` will cause gulp to ignore your test code.
 
@@ -93,7 +93,7 @@ describe('User Model testing', function() {
 
 ### Routing
 
-*How do I route REST API requests?*
+#### How do I route REST API requests?
 
 use ```nark.router```
 
@@ -113,7 +113,7 @@ nark.router.get('/api/logs', function* logs() {
 
 ### Login
 
-*How do I check if a user is logged in on the client side?*
+#### How do I check if a user is logged in on the client side?
 
 use the abstract state, 'cl' (for 'client logged in'), which will redirect to the log in page if the user is not logged in
 
@@ -126,7 +126,7 @@ $state('cl.mypage', {
 })
 ```
 
-*How do I check if a user is logged in on the server side?*
+#### How do I check if a user is logged in on the server side?
 
 use the ```nark.auth.isAuth``` function to check if the user is logged in before serving the content
 
