@@ -48,12 +48,12 @@ function main() {
 			yield user.hashPassword()
 		yield user.save().then(function(result) {
 			mailOptions.to = result.email
-			mailOptions.subject = 'Password for Nark Reset'
+			mailOptions.subject = 'You\'ve Joined Nark!'
 			mailOptions.text = 'Hi,\n\nYou are now narkoleptic!\n\n' +
 				'Thanks for joining us. We hope you\'ll be very satisfied.\n\nNark'
 			mailOptions.html = 'Hi,<br><br>Your are now a narkophiliac!<br><br>' + 
 				'Thanks for joining us. We hope you will be very satisfied.<br><br>Nark'
-			this.transporter.sendMail(mailOptions,function(error, info) {
+			nark.transporter.sendMail(mailOptions,function(error, info) {
 				if (error) {
 					return console.log(error)
 				}

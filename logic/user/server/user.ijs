@@ -12,6 +12,8 @@ function assignDependency() {
 		id:        type.string(),
 		email:  type.string(),
 		password:  type.string()
+	}, {
+		pk: 'email'
 	})
 	this.User.defineStatic("findByEmail", function *(email) {
 		return yield this.filter({email:email})

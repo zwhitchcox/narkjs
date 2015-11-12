@@ -4,6 +4,4 @@ angular
 
 function MainCtrl() {
 	var self = this
-	self.test = 'hello'
-	
 }

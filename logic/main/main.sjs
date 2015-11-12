@@ -18,7 +18,7 @@ function mainRoutes() {
 			yield next
 		})
 		nark.app.use(function*(next) {
-			let indexPage =  nark.BASEPATH + '/build/config/index.html'
+			let indexPage =  nark.BASEPATH + '/build/main/config/index.html'
 			yield* nark.sendfile.call(this,indexPage)
 			if (!this.status) this.throw(404)
 		})

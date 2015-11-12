@@ -4,9 +4,12 @@
           'ui.router',
 					'restangular',
 					'app.user',
-					'app.logs'
+					'app.logs',
+					'app.pages'
       ])
 angular
 	.module('app.user',[])
 angular
 	.module('app.logs',[])
+angular
+	.module('app.pages',[])

@@ -56,7 +56,7 @@ function main() {
 		user = new nark.User(user[0])
 		if (yield user.isPassword(body.password)) {
 			this.body = {
-				token: jwt.sign(user, this.config.secret)
+				token: jwt.sign(user, nark.config.secret)
 			}
 		} else {
 			this.throw(401, 'Wrong username or password')

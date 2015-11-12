@@ -11,15 +11,19 @@ const gulp   = require('gulp'),
 	footer     = require('gulp-footer'),
 	debug      = require('gulp-debug'),
 	babel      = require('gulp-babel'),
-	ngAnnotate = require('gulp-ng-annotate')
+	ngAnnotate = require('gulp-ng-annotate'),
+	markdown   = require('gulp-markdown'),
+	sass       = require('gulp-sass')
 
 var server;
-let mainTasks = ['jade','other','scripts','serve']
+let mainTasks = ['html','other','scripts','css','serve']
 let paths = {
-	scripts:  ['logic/!(snippets){,**/}!(*.spec.js)*.js'],
+	scripts:  ['logic/{,**/}!(*.spec.js)*.js'],
 	server:   ['logic/{,**/}+(*.sjs|*.ijs)'],
 	jade:     ['logic/{,**/}*.jade'],
-	other:    ['logic/{,**/}!(*.md|*.js|*.ijs|*.sjs|*.jade|*.png|*.jpe?g|*.gif)']
+	other:    ['logic/{,**/}!(*.md|*.js|*.ijs|*.sjs|*.jade|*.png|*.jpe?g|*.gif|*.scss)'],
+	markdown: ['logic/{,**/}*.md'],
+	sass:     ['logic/{,**/}*.scss']
 }
 gulp.task('clean', ()=> {
 	// ensures port will not be taken up when you quit gulp
@@ -48,11 +52,27 @@ gulp.task('scripts', ['clean'], ()=> {
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest('build'))
 })
-gulp.task('jade', ['clean'],()=> {
+gulp.task('html', ['clean'],()=> {
 	gulp
 		.src(paths.jade)
 		.pipe(jade())
 		.pipe(gulp.dest('build'))
+	gulp
+		.src(paths.markdown)
+		.pipe(markdown())
+		.pipe(header('<div layout-padding>'))
+		.pipe(footer('</div>'))
+		.pipe(gulp.dest('build'))
+})
+gulp.task('css', ['clean'],()=> {
+		gulp
+			.src(paths.sass)
+  	  .pipe(sass(
+					{outputStyle:'compressed'}
+				)
+				.on('error', sass.logError)
+			)
+  	  .pipe(gulp.dest('./css'));
 })
 gulp.task('other', ['clean'], ()=> {
 	gulp
@@ -66,7 +86,7 @@ gulp.task('watch',()=> {
 	gulp.watch(paths.server , mainTasks)
 })
 
-gulp.task('serve',['scripts','jade','other'], ()=> {
+gulp.task('serve',['scripts','html','css','other'], ()=> {
 	server = spawn('node', [__dirname+'/nark'], {env:process.ENV,stdio:'inherit'})
 })
 gulp.task('default', ['watch'].concat(mainTasks))

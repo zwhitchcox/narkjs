@@ -11,9 +11,9 @@ gulp, angular material, jade
 
 1. clone the github repository using your app name as the directory
 
-```shell
-git clone http://github.com/zwhitchcox/narkjs [YOUR APP NAME]
-```
+	```shell
+	git clone http://github.com/zwhitchcox/narkjs [YOUR APP NAME]
+	```
 
 2. [install rethinkdb](https://www.rethinkdb.com/docs/install/)
 
