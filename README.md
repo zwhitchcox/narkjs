@@ -14,7 +14,6 @@ gulp, angular material, jade
 	```shell
 	git clone http://github.com/zwhitchcox/narkjs [YOUR APP NAME]
 	```
-
 2. [install rethinkdb](https://www.rethinkdb.com/docs/install/)
 
 3. Profit
