@@ -5,7 +5,7 @@ Made for my personal use and the websites I design.
 
 Key technologies:
 
-gulp, angular material, jade
+gulp, angular material, jade, sass
 
 ## Installation
 
@@ -21,6 +21,12 @@ gulp, angular material, jade
 ##FAQ
 
 ### General
+
+#### How do I add style?
+
+Nark utilizes the [Sass](http://sass-lang.com/) language for style.
+You can learn all about it from [this video](https://www.youtube.com/watch?v=wz3kElLbEHE)
+or just learn as you go. It's pretty easy to pick up.
 
 #### How do I write server side code?
 
@@ -135,6 +141,14 @@ nark.router.get('/api/logs', function* logs() {
 ```
 
 ### Login
+
+#### How do I set up gmail to email new users?
+
+edit the `config.js` file with your credentials
+
+You may need to ["Allow Less Secure Apps"](https://www.google.com/settings/security/lesssecureapps)
+in your gmail account (it's all the way at the bottom). You also may need to 
+["Allow access to your Google account"](https://accounts.google.com/DisplayUnlockCaptcha)
 
 #### How do I check if a user is logged in on the client side?
 

@@ -34,7 +34,7 @@ gulp.task('clean', ()=> {
 			console.log(e)
 		}
 		}
-		return del(['build'])
+		return del([__dirname+'/build'])
 })
 gulp.task('scripts', ['clean'], ()=> {
 	return gulp
@@ -50,40 +50,46 @@ gulp.task('scripts', ['clean'], ()=> {
 		}))
 		.pipe(concat('app.min.js'))
 		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest('build'))
+		.pipe(gulp.dest(__dirname+'/build'))
 })
 gulp.task('html', ['clean'],()=> {
 	gulp
 		.src(paths.jade)
 		.pipe(jade())
-		.pipe(gulp.dest('build'))
+		.pipe(gulp.dest(__dirname+'/build'))
 	gulp
 		.src(paths.markdown)
 		.pipe(markdown())
 		.pipe(header('<div layout-padding>'))
 		.pipe(footer('</div>'))
-		.pipe(gulp.dest('build'))
+		.pipe(gulp.dest(__dirname+'/build'))
 })
 gulp.task('css', ['clean'],()=> {
 		gulp
 			.src(paths.sass)
+			.pipe(sourcemaps.init({
+				loadMaps:true
+			}))
   	  .pipe(sass(
 					{outputStyle:'compressed'}
 				)
 				.on('error', sass.logError)
 			)
-  	  .pipe(gulp.dest('./css'));
+			.pipe(concat('style.css'))
+			.pipe(sourcemaps.write('./'))
+  	  .pipe(gulp.dest(__dirname+'/build'));
 })
 gulp.task('other', ['clean'], ()=> {
 	gulp
 		.src(paths.other)
-		.pipe(gulp.dest('build'))
+		.pipe(gulp.dest(__dirname+'/build'))
 })
 gulp.task('watch',()=> {
 	gulp.watch(paths.scripts, mainTasks)
 	gulp.watch(paths.jade	  , mainTasks)
 	gulp.watch(paths.other	, mainTasks)
 	gulp.watch(paths.server , mainTasks)
+	gulp.watch(paths.sass   , mainTasks)
 })
 
 gulp.task('serve',['scripts','html','css','other'], ()=> {
