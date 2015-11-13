@@ -1,5 +1,4 @@
 node_modules
 build
 rethinkdb_data
-config.js
 .sw(p|o)
