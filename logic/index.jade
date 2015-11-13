@@ -2,11 +2,11 @@ doctype html
 html(ng-app="app" ng-cloak ng-strict-di)
 head
 	title Nark
-	link(rel="stylesheet" type="text/css" href="/config/style.css")
-	include ./vendorstyles.jade
+	link(rel="stylesheet" type="text/css" href="/style.css")
+	include ./main/config/vendorstyles.jade
 	meta(name="viewport" content="initial-scale=1")
 body(ng-controller="MainCtrl as main" layout="column")
-	include ./header.jade
+	include ./main/config/header.jade
 	div(ui-view)
-	include ./vendorscripts.jade
+	include ./main/config/vendorscripts.jade
 	script(src="/app.min.js")
