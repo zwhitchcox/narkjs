@@ -16,7 +16,18 @@ gulp, angular material, jade, sass
 	```
 2. [install rethinkdb](https://www.rethinkdb.com/docs/install/)
 
-3. Profit
+3. install dependencies
+	```shell
+	npm i
+	```
+
+4. update config.js with your gmail credentials
+
+	You may need to ["Allow Less Secure Apps"](https://www.google.com/settings/security/lesssecureapps)
+	in your gmail account (it's all the way at the bottom). You also may need to 
+	["Allow access to your Google account"](https://accounts.google.com/DisplayUnlockCaptcha)
+
+5. profit
 
 ##FAQ
 
@@ -146,9 +157,6 @@ nark.router.get('/api/logs', function* logs() {
 
 edit the `config.js` file with your credentials
 
-You may need to ["Allow Less Secure Apps"](https://www.google.com/settings/security/lesssecureapps)
-in your gmail account (it's all the way at the bottom). You also may need to 
-["Allow access to your Google account"](https://accounts.google.com/DisplayUnlockCaptcha)
 
 #### How do I check if a user is logged in on the client side?
 
