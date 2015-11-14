@@ -43,4 +43,4 @@ gulp, angular material, jade, sass
 
 [John Papa](https://github.com/johnpapa/angular-styleguide) For giving me the knowledge of how to structure apps in a consistent, logical way
 
-[Mean.io](http://mean.io) For giving me the basic knowledge of how to create a framework
+[Lior Kesos](http://github.com/liorkesos) For giving me the basic knowledge of how to create a framework
