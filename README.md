@@ -36,3 +36,9 @@ gulp, angular material, jade, sass
 	["Allow access to your Google account"](https://accounts.google.com/DisplayUnlockCaptcha)
 
 5. profit
+
+## Thanks
+
+[James Moore](https://www.youtube.com/channel/UC4nNCN49Fxexd30qtbzPDkg) For your amazing video tutorials on JSON Web Tokens, RethinkDb, and Koa
+
+[John Papa](https://github.com/johnpapa/angular-styleguide) For giving me the knowledge of how to structure apps in a consistent, logical way
