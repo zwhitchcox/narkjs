@@ -42,3 +42,5 @@ gulp, angular material, jade, sass
 [James Moore](https://www.youtube.com/channel/UC4nNCN49Fxexd30qtbzPDkg) For your amazing video tutorials on JSON Web Tokens, RethinkDb, and Koa
 
 [John Papa](https://github.com/johnpapa/angular-styleguide) For giving me the knowledge of how to structure apps in a consistent, logical way
+
+[Mean.io](http://mean.io) For giving me the basic knowledge of how to create a framework
