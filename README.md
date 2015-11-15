@@ -13,7 +13,7 @@ gulp, angular material, jade, sass
 
 1. scalable - this is meant for everything from a todo list to a full fledged ERP
 
-2. freedom to change quickly - this is made to get apps up and running quickly, with little to no hassle, and keep them easy to modify
+2. customizable - every package is designed to be rapidly customized or completely removed
 
 ## Installation
 
