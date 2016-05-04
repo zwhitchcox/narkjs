@@ -1,7 +1,7 @@
 #nark
 Node, Angular, RethinkDb, Koa Framework
 
-For documentation, please see the [wiki](/zwhitchcox/narkjs/wiki). Still need help? [Open an issue](/zwhitchcox/narkjs/issues). Newbies welcome!
+For documentation, please see the [wiki](/wiki). Still need help? [Open an issue](/zwhitchcox/narkjs/issues). Newbies welcome!
 
 #### Key technologies:
 
