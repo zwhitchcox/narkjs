@@ -1,4 +1,7 @@
-#nark
+# {} yourselves
+# nark 2.0 is coming
+
+# nark
 Node, Angular, RethinkDb, Koa Framework
 
 For documentation, please see the [wiki](/wiki). Still need help? [Open an issue](/zwhitchcox/narkjs/issues). Newbies welcome!
