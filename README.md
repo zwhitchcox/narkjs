@@ -1,5 +1,5 @@
-# {} yourselves
-# nark 2.0 is coming
+##{} yourselves | nark2.0 is coming
+
 
 # nark
 Node, Angular, RethinkDb, Koa Framework
